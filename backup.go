@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-func deleteBackup(file string) error {
-	return os.Remove(file)
+func DeleteBackup(origFile, backupFile string) error {
+	return os.Remove(backupFile)
 }
 
 func awsBackup(file string) error {
