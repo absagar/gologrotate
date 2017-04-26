@@ -19,7 +19,7 @@ func Classic(files []string) *Config {
 		FilePaths: files,
 		RotateTriggers: []rotateTrigger{{
 			FileSize:      1024 * 1024 * 200, //200mb
-			CreatedBefore: 24 * time.Hour,    //1 day
+			CreatedBefore: 120 * time.Hour,    //5 days
 		}},
 		CheckFrequency: 24 * time.Hour,
 		ErrorFunc: func(e error) {
