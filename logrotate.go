@@ -7,11 +7,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/bradfitz/slice"
 )
 
 func Classic(files []string) *Config {
@@ -142,7 +141,7 @@ func moveCompressed(f string) error {
 		return err
 	}
 
-	slice.Sort(matches[:], func(i, j int) bool {
+	sort.Slice(matches, func(i, j int) bool {
 		idot, jdot := strings.Split(matches[i], "."), strings.Split(matches[j], ".")
 		return idot[len(idot)-2] > jdot[len(jdot)-2]
 	})
